@@ -16,7 +16,8 @@ namespace AdventureWorksMain.Entities
             : base(options)
         {
         }
-
+//Incase a new tavble is added 
+    //  public virtual DbSet<CustomerFamily> CustomerFamiles{get; set;}
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<BuildVersion> BuildVersions { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }

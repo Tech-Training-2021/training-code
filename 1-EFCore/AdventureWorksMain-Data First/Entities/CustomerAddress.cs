@@ -26,6 +26,9 @@ namespace AdventureWorksMain.Entities
         [Column(TypeName = "datetime")]
         public DateTime ModifiedDate { get; set; }
 
+//lets say a new column is added in the database then simply add the respective property
+        //public bool Family {get; set;}
+
         [ForeignKey(nameof(AddressId))]
         [InverseProperty("CustomerAddresses")]
         public virtual Address Address { get; set; }
