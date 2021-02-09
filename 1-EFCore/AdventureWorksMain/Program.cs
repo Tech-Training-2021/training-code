@@ -14,13 +14,13 @@ namespace AdventureWorksMain
                if(num%2 == 0)
                 Console.Write($"{num} ");// string interpolation
            }*/
-        AdventureWorksDbContext dbContext=new AdventureWorksDbContext();
+     /*   AdventureWorksDbContext dbContext=new AdventureWorksDbContext();
         var customers= dbContext.Customers;
             foreach (var customer in customers)
             {
                 if(customer.CustomerId<11)
                     Console.WriteLine($"{customer.FirstName} {customer.LastName}");
-            }
+            }*/
         }
     }
 }
