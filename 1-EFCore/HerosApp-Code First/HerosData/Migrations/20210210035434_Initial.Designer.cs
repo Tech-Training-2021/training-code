@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HerosData.Migrations
 {
-    [DbContext(typeof(SuperPeopleContext))]
-    [Migration("20210209051045_Initial-setup")]
-    partial class Initialsetup
+    [DbContext(typeof(SuperHeroContext))]
+    [Migration("20210210035434_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace HerosData.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
 
-            modelBuilder.Entity("HerosData.Entities.SuperPeople", b =>
+            modelBuilder.Entity("HerosData.Entities.SuperHero", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace HerosData.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("superpeople");
+                    b.ToTable("superhero");
                 });
 #pragma warning restore 612, 618
         }

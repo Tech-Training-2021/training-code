@@ -2,12 +2,12 @@
 
 namespace HerosData.Migrations
 {
-    public partial class Initialsetup : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "superpeople",
+                name: "superhero",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -18,14 +18,14 @@ namespace HerosData.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_superpeople", x => x.id);
+                    table.PrimaryKey("PK_superhero", x => x.id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "superpeople");
+                name: "superhero");
         }
     }
 }

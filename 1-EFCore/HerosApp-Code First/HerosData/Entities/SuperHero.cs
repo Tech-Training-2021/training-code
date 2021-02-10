@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HerosData.Entities
 {
-    [Table("superpeople")]
-    class SuperPeople
+    [Table("superhero")]
+    public class SuperHero
     {
         // An entity which has int type property as Id/ClassnameId is automatically presumed as PK in EFCore
         [Key]
@@ -17,7 +17,6 @@ namespace HerosData.Entities
         public string WorkName { get; set; }
         [StringLength(50)]
         public string Hideout { get; set; }
-        [StringLength(50)]
-        public string CharType { get; set; }
+        public virtual SuperPower SuperPower { get; set; }
     } 
 }

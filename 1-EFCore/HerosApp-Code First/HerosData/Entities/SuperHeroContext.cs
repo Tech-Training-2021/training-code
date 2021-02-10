@@ -2,13 +2,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 namespace HerosData.Entities
 {
-    class SuperPeopleContext:DbContext
+   public class SuperHeroContext:DbContext
     {
-        public SuperPeopleContext()
+        public SuperHeroContext()
         {
             
         }
-        public SuperPeopleContext(DbContextOptions<SuperPeopleContext> options) 
+        public SuperHeroContext(DbContextOptions<SuperHeroContext> options) 
         {
             
         }
@@ -19,6 +19,7 @@ namespace HerosData.Entities
              optionsBuilder.UseSqlServer("Server=tcp:adventureworksdbserver1.database.windows.net,1433;Initial Catalog=HerosDb;User ID=dev;Password=Password123");
             }
         }
-        public DbSet<SuperPeople> SuperPeople { get; set; }
+        public DbSet<SuperHero> SuperHeros { get; set; }
+        public DbSet<SuperPower> SuperPowers { get; set; }
     }
 }
