@@ -48,6 +48,7 @@ Please follow the links given below to review the basics if you feel a bit rusty
   * Also [markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#headers)
 
 ### References for learning 
+* [Debugging in VSCode](https://docs.microsoft.com/en-us/dotnet/core/tutorials/debugging-with-visual-studio-code)
 * [Entity Framework Core](https://docs.microsoft.com/en-us/learn/modules/persist-data-ef-core/1-introduction)
 * [REST Principles](https://restfulapi.net/rest-architectural-constraints/) 
 * [web API with ASP.NET Core](https://docs.microsoft.com/en-us/learn/modules/build-web-api-aspnet-core/)
