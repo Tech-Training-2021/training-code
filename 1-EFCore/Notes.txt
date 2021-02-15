@@ -1,0 +1,38 @@
+1. EFCore
+Db Name - AdventureWorksDb
+Server - adventureworksdbserver1.database.windows.net
+user id - dev
+Password - Password123
+dotnet -v
+2. Asp.Net Core - WebAPI (REST Api)
+3. Angular
+4. Misc - Azure Repos, Azure Functions, DevOps
+
+
+SOA- Service Oriented Architecture 
+SOAP- Simple Object Access Protocol
+	- Webservices -> .Net 2.0 -> .asmx -> http
+	- WCF - Windows Communication Foundation
+	- Protocols - Http, tcp, msmq, namedpipes
+	- WSDL - Web Service Description Language
+	- Messages - XML 
+
+- drawbacks 
+	- RPC
+	- complex WSDL 
+	- messaging was heavy 
+
+REST - Representational State Transfer
+	- HTTP/HTTPS
+	- 
+HTTP Request/Response:
+	- Header	
+	- Body
+
+HTTP Response Statuses:
+	100s - Informational
+	200s - Success
+	300s - Redirection
+	400s - Client/Application Error	
+	500s - Server Error
+

@@ -1,11 +1,7 @@
-using HerosData;
-using HerosData.Entities;
-using HerosLogic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -16,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HerosApi
+namespace RestApi_Demo
 {
     public class Startup
     {
@@ -32,11 +28,9 @@ namespace HerosApi
         {
 
             services.AddControllers();
-            services.AddDbContext<SuperHeroContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HerosDb")));
-            services.AddScoped<ISuperHeroRepo, SuperHeroRepo>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "HerosApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RestApi_Demo", Version = "v1" });
             });
         }
 
@@ -47,7 +41,7 @@ namespace HerosApi
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HerosApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestApi_Demo v1"));
             }
 
             app.UseHttpsRedirection();

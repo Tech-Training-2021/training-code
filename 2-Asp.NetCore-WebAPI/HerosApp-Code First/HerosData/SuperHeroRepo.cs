@@ -11,7 +11,7 @@ namespace HerosData
     // This is the class which has all the CRUD operations related to Super Hero and their powers
     public class SuperHeroRepo: Logic.ISuperHeroRepo
     {
-        SuperHeroContext context=new SuperHeroContext();
+        private readonly SuperHeroContext context;
         Mapper mapper = new Mapper();
         public SuperHeroRepo()
         {
