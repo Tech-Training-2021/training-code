@@ -71,11 +71,12 @@ namespace HerosApi.Controllers
             }
         }
         [HttpPut]
-        public IActionResult Put([FromBody]SuperHero superHero)
+        public IActionResult Put([FromRoute]int id,[FromBody]SuperHero superHero)
         {
             try
             {
-                return Ok(repo.UpdateSuperHero(superHero));
+                repo.UpdateSuperHero(id,superHero);
+                return NoContent();
             }
             catch (Exception ex)
             {

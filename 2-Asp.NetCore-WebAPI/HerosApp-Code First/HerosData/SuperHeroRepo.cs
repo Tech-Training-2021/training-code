@@ -53,13 +53,16 @@ namespace HerosData
             .FirstOrDefault();
             return mapper.Map(superHero);
         }
-        public Logic.SuperHero UpdateSuperHero(Logic.SuperHero hero){
+        public void UpdateSuperHero(int id,Logic.SuperHero hero){
             var superHero=context.SuperHeros
-                                 .Where(h=>h.Id==hero.id)
+                                 .Where(h=>h.Id==id)
                                  .FirstOrDefault();
-            superHero=mapper.Map(hero);
-            context.SaveChanges();
-            return mapper.Map(superHero);
+            if (superHero != null)
+            {
+                superHero = mapper.Map(hero);
+                context.SuperHeros.Update(superHero);
+                context.SaveChanges();
+            }
         }
         public void RemoveHero(int id){
             var superHero=context.SuperHeros

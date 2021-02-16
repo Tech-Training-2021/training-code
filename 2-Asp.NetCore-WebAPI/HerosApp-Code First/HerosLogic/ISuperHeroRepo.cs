@@ -13,7 +13,7 @@ namespace HerosLogic
         IEnumerable<SuperHero> GetAllHeros();
         SuperHero GetSuperHeroById(int id);
         SuperHero GetSuperHeroByName(string name);
-        SuperHero UpdateSuperHero(SuperHero superHero);
+        void UpdateSuperHero(int id,SuperHero superHero);
         void RemoveHero(int id);
     }
 }
