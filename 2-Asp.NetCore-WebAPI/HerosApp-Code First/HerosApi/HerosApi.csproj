@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HerosData\HerosData.csproj" />
     <ProjectReference Include="..\HerosLogic\HerosLogic.csproj" />
   </ItemGroup>
