@@ -31,8 +31,8 @@ namespace HerosApi.Controllers
                 return StatusCode(400, ex.Message);
             }
         }
-        [HttpGet("get/{id}")]
-        public IActionResult Get([FromRoute]int id)
+        [HttpGet("get/{id:int}")]
+        public IActionResult GetById([FromRoute]int id)  
         {
             try
             {
@@ -45,7 +45,7 @@ namespace HerosApi.Controllers
             }
         }
         [HttpGet("get/{name}")]
-        public IActionResult Get([FromQuery]string name)
+        public IActionResult GetByName(string name)
         {
             try
             {
