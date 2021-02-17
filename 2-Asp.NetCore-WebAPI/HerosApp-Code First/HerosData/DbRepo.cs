@@ -9,15 +9,15 @@ using HerosData.Mappers;
 namespace HerosData
 {
     // This is the class which has all the CRUD operations related to Super Hero and their powers
-    public class SuperHeroRepo: Logic.ISuperHeroRepo
+    public class DbRepo: Logic.ISuperHeroRepo, Logic.ISuperPowerRepo
     {
         private readonly SuperHeroContext context=new SuperHeroContext();
         Mapper mapper = new Mapper();
-        public SuperHeroRepo()
+        public DbRepo()
         {
             
         }
-        public SuperHeroRepo(SuperHeroContext context, Mapper mapper)
+        public DbRepo(SuperHeroContext context, Mapper mapper)
         {
             this.context=context;
             this.mapper = mapper;
