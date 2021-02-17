@@ -72,5 +72,39 @@ namespace HerosData
             context.Remove<SuperHero>(superHero);
             context.SaveChanges();                   
         }
+
+        /// <summary>
+        /// This repo Method will only return Superpowers
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Logic.SuperPower> GetAllSuperPowers()
+        {
+            var powers = context.SuperPowers
+            .ToList();
+            return mapper.Map(powers);
+        }
+
+        public Logic.SuperPower GetSuperPowerById(int id)
+        {
+            var superPower = context.SuperPowers
+            .Where(x => x.Id == id)
+            .FirstOrDefault();
+            return mapper.Map(superPower);
+        }
+
+        public void AddSuperPower(Logic.SuperPower power)
+        {
+            context.SuperPowers.Add(mapper.Map(power));
+            context.SaveChanges();
+        }
+
+        public void RemoveSuperPower(int id)
+        {
+            var superPower = context.SuperPowers
+                                 .Where(p => p.Id == id)
+                                 .FirstOrDefault();
+            context.Remove<SuperPower>(superPower);
+            context.SaveChanges();
+        }
     }
 }

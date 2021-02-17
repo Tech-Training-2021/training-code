@@ -8,10 +8,9 @@ namespace HerosLogic
 {
     public interface ISuperPowerRepo
     {
-        void AddSuperPower();
+        void AddSuperPower(SuperPower superPower);
         IEnumerable<SuperPower> GetAllSuperPowers();
         SuperPower GetSuperPowerById(int id);
         void RemoveSuperPower(int id);
-
     }
 }
