@@ -5,11 +5,12 @@ using System.Linq;
 using System.Collections.Generic;
 using Logic=HerosLogic;
 using HerosData.Mappers;
+using System.Threading.Tasks;
 
 namespace HerosData
 {
     // This is the class which has all the CRUD operations related to Super Hero and their powers
-    public class DbRepo: Logic.ISuperHeroRepo, Logic.ISuperPowerRepo
+    public class DbRepo: Logic.ISuperHeroRepo //, Logic.ISuperPowerRepo
     {
         private readonly SuperHeroContext context=new SuperHeroContext();
         Mapper mapper = new Mapper();
@@ -35,10 +36,11 @@ namespace HerosData
         /// </summary>
         /// <returns></returns>
         public IEnumerable<Logic.SuperHero> GetAllHeros(){
-            var heroes= context.SuperHeros
+           var heroes= context.SuperHeros
             .ToList();
-            return mapper.Map(heroes);
+             return mapper.Map(heroes);
         }
+
         public Logic.SuperHero GetSuperHeroById(int id){
             var superHero=context.SuperHeros
             .Where(x=>x.Id==id)
@@ -46,6 +48,7 @@ namespace HerosData
             .FirstOrDefault();
             return mapper.Map(superHero);
         }
+        
         public Logic.SuperHero GetSuperHeroByName(String name){
             var superHero=context.SuperHeros
             .Where(x=>x.WorkName==name)

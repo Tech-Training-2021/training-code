@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 namespace HerosApi.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class SuperHeroesController : ControllerBase
+    public class SuperHeroesController : MyControllerBase
     {
         private readonly ISuperHeroRepo repo;
         public SuperHeroesController(ISuperHeroRepo repo)
@@ -19,11 +18,15 @@ namespace HerosApi.Controllers
             this.repo = repo;
         }
         [HttpGet("get")]
-        public IActionResult Get()
+        //[ProducesResponseType(StatusCodes.Status200OK, Type=typeof(IEnumerable<SuperHero>)]// only use typeof if return type is IActionResult
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<IEnumerable<SuperHero>> Get()
         {
+            //return repo.GetAllHeros();
             try
             {
-                // retruning status code 200
+                // returning status code 200
                 return Ok(repo.GetAllHeros());
             }
             catch(Exception ex)
@@ -32,12 +35,14 @@ namespace HerosApi.Controllers
             }
         }
         [HttpGet("get/{id:int}")]
-        public IActionResult GetById([FromRoute]int id)  
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<SuperHero> GetById([FromRoute]int id)  
         {
             try
             {
                 // retruning status code 200
-                return Ok(repo.GetSuperHeroById(id));
+                return  Ok(repo.GetSuperHeroById(id));
             }
             catch (Exception ex)
             {
@@ -45,7 +50,7 @@ namespace HerosApi.Controllers
             }
         }
         [HttpGet("get/{name}")]
-        public IActionResult GetByName(string name)
+        public IActionResult GetByName([FromRoute]string name)
         {
             try
             {
@@ -58,12 +63,19 @@ namespace HerosApi.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Post([FromBody]SuperHero hero)
+        public IActionResult Post(SuperHero hero)
         {
             try
             {
-                repo.AddSuperHero(hero);
-                return NoContent();// 204 status
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    repo.AddSuperHero(hero);
+                    return NoContent();// 204 status
+                }
             }
             catch (Exception ex)
             {
@@ -84,7 +96,7 @@ namespace HerosApi.Controllers
             }
         }
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult Delete([FromRoute]int id)
         {
             try
             {
