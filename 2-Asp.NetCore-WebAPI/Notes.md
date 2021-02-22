@@ -25,3 +25,18 @@ Binding Source
 - [FromServices]
 
 ### Formatting of Responses
+C# Object                   |   XML Object                     |      JSON Object
+-------------------------------------------------------------------------------
+class Person{               |  <person>                        |  "person": {
+  int id {get; set;}=>1     |     <id>1</id>                   |    "id":1,
+  string name               |     <name>"John"</name>          |    "name":"John"
+      {get; set}=>"John"    |  </person>                       |  }
+}                           |  
+
+- **Content Negotiation** - Content negotiation occurs when the client specifies an Accept header. The default format used by ASP.NET     Core is JSON.
+
+- To create custom formatter - create a class (MyFormatter) which inhertis from TextOutputFormatter
+- ```services.AddControllers(options=>
+          options.InputFormatters.Insert(0, new MyFormatter());
+          options.OutputFormatters.Insert(0, new MyFormatter());
+    );```

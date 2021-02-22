@@ -32,7 +32,9 @@ namespace HerosApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers(options =>
+                //returns 406 Not Acceptable-if no formatter is found to satisfy client's request
+                options.ReturnHttpNotAcceptable = true).AddXmlSerializerFormatters();// to add another formatter in Asp.Net core middleware
             services.AddDbContext<SuperHeroContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HerosDb")));
             // code for inmemory data
             //services.AddDbContext<SuperHeroContext>(options =>

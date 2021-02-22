@@ -21,7 +21,12 @@ namespace HerosApi.Controllers
         //[ProducesResponseType(StatusCodes.Status200OK, Type=typeof(IEnumerable<SuperHero>)]// only use typeof if return type is IActionResult
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<IEnumerable<SuperHero>> Get()
+        public ActionResult<SuperHero> Get()
+        {
+            //return Content("Hello Asp.Net Core Web API");
+            return new SuperHero() { id = 10, realName = "Tony Stark", hideOut = "Garage", workName = "Iron man" };
+        }
+        /*public ActionResult<IEnumerable<SuperHero>> Get()
         {
             //return repo.GetAllHeros();
             try
@@ -33,7 +38,7 @@ namespace HerosApi.Controllers
             {
                 return StatusCode(400, ex.Message);
             }
-        }
+        }*/
         [HttpGet("get/{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
