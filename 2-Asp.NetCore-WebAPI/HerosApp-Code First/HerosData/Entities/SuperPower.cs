@@ -4,6 +4,17 @@ namespace HerosData.Entities
 {
    public class SuperPower
     {
+        public SuperPower()
+        {
+
+        }
+        public SuperPower(int id,string name, string description, int? ownerId)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Ownerid = ownerId;
+        }
         [Key]
         public int Id { get; set; }
         [Required]

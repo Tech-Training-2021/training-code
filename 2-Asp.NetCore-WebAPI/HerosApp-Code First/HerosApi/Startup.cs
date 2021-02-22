@@ -34,6 +34,9 @@ namespace HerosApi
 
             services.AddControllers();
             services.AddDbContext<SuperHeroContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HerosDb")));
+            // code for inmemory data
+            //services.AddDbContext<SuperHeroContext>(options =>
+                            //options.UseInMemoryDatabase("HerosDb"));
             services.AddScoped<ISuperHeroRepo, DbRepo>();
             services.AddSwaggerGen(c =>
             {
