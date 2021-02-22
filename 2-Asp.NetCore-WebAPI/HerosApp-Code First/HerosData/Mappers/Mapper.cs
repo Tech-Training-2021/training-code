@@ -50,5 +50,34 @@ namespace HerosData.Mappers
                 return allheros;
             }
         }
+        public Logic.SuperPower Map(SuperPower power)
+        {
+            return new Logic.SuperPower()
+            {
+                id = power.Id,
+                name = power.Name,
+                description = power.Description,
+                ownerId = power.Ownerid
+            };
+        }
+        public SuperPower Map(Logic.SuperPower power)
+        {
+            return new SuperPower()
+            {
+                Id = power.id,
+                Name = power.name,
+                Description = power.description,
+                Ownerid = power.ownerId
+            };
+        }
+        public List<Logic.SuperPower> Map(List<SuperPower> powers)
+        {
+            List<Logic.SuperPower> allheros = new List<Logic.SuperPower>();
+            foreach (var p in powers)
+            {
+                allheros.Add(Map(p));
+            }
+            return allheros;
+        }
     }
 }

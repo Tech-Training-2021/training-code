@@ -38,6 +38,7 @@ namespace HerosApi
             //services.AddDbContext<SuperHeroContext>(options =>
                             //options.UseInMemoryDatabase("HerosDb"));
             services.AddScoped<ISuperHeroRepo, DbRepo>();
+            services.AddScoped<ISuperPowerRepo, DbRepo>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HerosApi", Version = "v1" });
