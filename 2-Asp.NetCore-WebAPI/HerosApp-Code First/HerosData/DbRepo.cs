@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace HerosData
 {
     // This is the class which has all the CRUD operations related to Super Hero and their powers
-    public class DbRepo: Logic.ISuperHeroRepo //, Logic.ISuperPowerRepo
+    public class DbRepo: Logic.ISuperHeroRepo,Logic.ISuperPowerRepo
     {
         private readonly SuperHeroContext context=new SuperHeroContext();
         Mapper mapper = new Mapper();
@@ -27,10 +27,6 @@ namespace HerosData
             context.SuperHeros.Add(mapper.Map(hero));
             context.SaveChanges();
         }
-        /*public void AddSuperPower(SuperPower power){
-            context.SuperPowers.Add(power);
-            context.SaveChanges();
-        }*/
         /// <summary>
         /// This repo Method will only return Superheroes
         /// </summary>
