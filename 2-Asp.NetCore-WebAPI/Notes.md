@@ -45,3 +45,22 @@ Binding Source
   ```
 ### [Swagger or Open API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-5.0)
 - Documentation is an important practise in SOA.
+
+### CORS
+- Cross Origin Requests
+- Mordern browsers only allow same origin requests for security purpose
+- Same Origin 
+    - http://www.abc.com/index.html
+    - http://www.abc.com/aboutus.html
+- Different Origins
+  - https://www.abc.net
+  - https://www.abc.com
+  - tcp://abc.com
+  - http:www.abc.com
+  - https://www.abc.com:8085
+
+#### Enable CORS
+- There are three ways to enable CORS:
+1. In middleware using a named policy or default policy.
+2. Using endpoint routing.
+3. With the [EnableCors] attribute.

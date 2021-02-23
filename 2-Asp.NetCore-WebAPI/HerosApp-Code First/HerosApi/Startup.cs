@@ -33,6 +33,27 @@ namespace HerosApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("*").AllowAnyOrigin();
+                });
+                //options.AddPolicy("Policy1",
+                //    builder =>
+                //    {
+                //        builder.WithOrigins("http://example.com",
+                //                            "http://www.contoso.com");
+                //    });
+
+                //options.AddPolicy("AnotherPolicy",
+                //    builder =>
+                //    {
+                //        builder.WithOrigins("http://www.contoso.com")
+                //                            .AllowAnyHeader()
+                //                            .AllowAnyMethod();
+                //    });
+            });
 
             services.AddControllers(options =>
                 //returns 406 Not Acceptable-if no formatter is found to satisfy client's request
@@ -72,6 +93,7 @@ namespace HerosApi
             app.UseHttpsRedirection();
 
             app.UseRouting();// this middleware is used to configure endpoints 
+            app.UseCors();
 
             app.UseAuthorization();
 
