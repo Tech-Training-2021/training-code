@@ -25,12 +25,13 @@ Binding Source
 - [FromServices]
 
 ### Formatting of Responses
-| C# Object                   |   XML Object                     |      JSON Object   |
-|_____________________________|__________________________________|____________________||
-| class Person{               |  <person>                        |  "person": {       |
-|   int id {get; set;}=>1     |     <id>1</id>                   |    "id":1,         |
-|   string name               |     <name>"John"</name>          |    "name":"John"   | 
-|       {get; set}=>"John"    |  </person>                       |  }                 |
+
+| **C# Object**               |   **XML Object**                 |   **JSON Object**  |
+|-----------------------------|----------------------------------|--------------------|
+| class Person{               |  `<person>`                        |  "person": {       |
+|   int id {get; set;}=>1     |     `<id>1</id>`                   |    "id":1,         |
+|   string name               |     `<name>"John"</name> `         |    "name":"John"   | 
+|       {get; set}=>"John"    |  `</person> `                      |  }                 |
 | }                           |  
 
 - **Content Negotiation** - Content negotiation occurs when the client specifies an Accept header. The default format used by ASP.NET     Core is JSON.

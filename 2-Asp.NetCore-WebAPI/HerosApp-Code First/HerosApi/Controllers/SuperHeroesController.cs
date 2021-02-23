@@ -38,7 +38,7 @@ namespace HerosApi.Controllers
                 // returning status code 200
                 return Ok(repo.GetAllHeros());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(400, ex.Message);
             }
@@ -58,18 +58,26 @@ namespace HerosApi.Controllers
                 // retruning status code 200
                 return  Ok(repo.GetSuperHeroById(id));
             }
-            catch (Exception ex)
+            catch
             {
-                return NotFound(ex.Message);
+                return NotFound($"Superhero by id: {id} does not exist");
             }
         }
+        // This is the action method to show Error handling page in development env
+        /*public SuperHero GetById([FromRoute]int id)
+        {
+            if (id.Equals(0)){
+                throw new ArgumentException($"Super Hero by id - {id} is not found");
+            }
+            return repo.GetSuperHeroById(id);
+        }*/
         /// <summary>
         /// Get SuperHero by name
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpGet("get/{name}")]
-        public IActionResult GetByName([FromRoute]string name)
+        [HttpGet("get/{name}:string")]
+        public IActionResult GetByName([FromRoute] string name)
         {
             try
             {
@@ -78,7 +86,7 @@ namespace HerosApi.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound(ex.Message);
+                return NotFound($"The superhero by name {name} does not exist");
             }
         }
         /// <summary>
@@ -101,9 +109,9 @@ namespace HerosApi.Controllers
                     return NoContent();// 204 status
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                return BadRequest(ex.Message);
+                return BadRequest("Hero cannot be added, please try again");
             }
         }
         /// <summary>
@@ -113,16 +121,16 @@ namespace HerosApi.Controllers
         /// <param name="superHero"></param>
         /// <returns></returns>
         [HttpPut]
-        public IActionResult Put([FromRoute]int id,[FromBody]SuperHero superHero)
+        public IActionResult Put([FromRoute] int id, [FromBody] SuperHero superHero)
         {
             try
             {
-                repo.UpdateSuperHero(id,superHero);
+                repo.UpdateSuperHero(id, superHero);
                 return NoContent();
             }
-            catch (Exception ex)
+            catch
             {
-                return NotFound(ex.Message);
+                return NotFound($"Superhero by id: {id} does not exist");
             }
         }
         /// <summary>
@@ -130,17 +138,17 @@ namespace HerosApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete]
-        public IActionResult Delete([FromRoute]int id)
+        [HttpDelete("delete/{id:int}")]
+        public IActionResult Delete([FromRoute] int id)
         {
             try
             {
                 repo.RemoveHero(id);
                 return NoContent();
             }
-            catch (Exception ex)
+            catch
             {
-                return NotFound(ex.Message);
+                return NotFound($"Superhero by id: {id} does not exist");
             }
         }
 

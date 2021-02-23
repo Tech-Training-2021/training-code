@@ -54,7 +54,7 @@ namespace HerosApi
 
             });
         }
-
+        //Middlewares configured
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -64,14 +64,18 @@ namespace HerosApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SuperHeros Api v1"));
             }
+            else
+            {
+                app.UseExceptionHandler("/error");
+            }
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseRouting();// this middleware is used to configure endpoints 
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints =>  // this middleware executes those endpoints
             {
                 endpoints.MapControllers();
             });
