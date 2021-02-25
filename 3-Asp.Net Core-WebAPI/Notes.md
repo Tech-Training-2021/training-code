@@ -25,7 +25,7 @@
 - JWT: JSON Web Tokens
   - JWT has 2 parts separated by .
   - header.payload.signature
-### Secrets Management
+### [Secrets Management](https://dev.to/dotnet/how-to-store-app-secrets-for-your-asp-net-core-project-2j5b)
 - to store sensitive/confidential data/environment/individual/application/centralized
 - Hardcoded (not recommended at all), *Setting.json, Secrets file, Azure Key Vault (most recommended)
 - Generate `Secrets.json` by **right clicking on the Api project** and click **Manage Secrets**

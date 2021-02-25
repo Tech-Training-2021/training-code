@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>ConsumeSuperHeros_Server</RootNamespace>
+    <UserSecretsId>e4ad19b0-4ef8-4f9b-848c-abcd74f3c21d</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
