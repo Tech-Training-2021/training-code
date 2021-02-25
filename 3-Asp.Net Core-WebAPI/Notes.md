@@ -28,3 +28,6 @@
 ### Secrets Management
 - to store sensitive/confidential data/environment/individual/application/centralized
 - Hardcoded (not recommended at all), *Setting.json, Secrets file, Azure Key Vault (most recommended)
+- Generate `Secrets.json` by **right clicking on the Api project** and click **Manage Secrets**
+- the `Secrets.json` file is stored in `C:\Users\<username>\AppData\Roaming\Microsoft\UserSecrets\<GUID>`
+- This  `Secrets.json` file is not pushed on source control and it is per individual basis

@@ -54,9 +54,9 @@ namespace HerosApi
                                 //the signing key is valid and trusted by the server
                                 ValidateIssuerSigningKey = true,
 
-                                ValidIssuer = "https://localhost:44382/",
-                                ValidAudience = "https://localhost:44382/",
-                                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
+                                ValidIssuer = Configuration["ValidIssuer"],
+                                ValidAudience = Configuration["ValidAudience"],
+                                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["IssuerSigningKey"]))
                             };
                         }
                 );

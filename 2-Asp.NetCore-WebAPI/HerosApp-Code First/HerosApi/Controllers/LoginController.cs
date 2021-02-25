@@ -1,6 +1,7 @@
 ﻿using HerosApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,11 @@ namespace HerosApi.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        public IConfiguration Configuration { get; }
+        public LoginController(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
         [HttpPost,Route("login")]
         public IActionResult Login([FromBody] Login user)
         {
@@ -25,12 +31,12 @@ namespace HerosApi.Controllers
             }
             if (user.userName == "John" && user.password == "Password123")
             {
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["IssuerSigningKey"]));
                 var signInCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
                 var tokenOptions = new JwtSecurityToken(
-                    issuer: "https://localhost:44382/",
-                    audience: "https://localhost:44382/",
+                    issuer: Configuration["ValidIssuer"],
+                    audience: Configuration["ValidAudience"],
                     claims: new List<Claim>(),
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: signInCredentials
