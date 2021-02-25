@@ -1,6 +1,7 @@
 using HerosData;
 using HerosData.Entities;
 using HerosLogic;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,12 +11,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 
 //[assembly:ApiController]
@@ -33,6 +36,30 @@ namespace HerosApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(opt=> {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(options=>
+                        {
+                            // the token is going to validate if
+                            options.TokenValidationParameters = new TokenValidationParameters
+                            {
+                                //the issuer is the actual server that created the token
+                                ValidateIssuer = true,
+                                // the reciever of the token is a valid recipient
+                                ValidateAudience = true,
+                                // the token has not expired
+                                ValidateLifetime = true,
+                                //the signing key is valid and trusted by the server
+                                ValidateIssuerSigningKey = true,
+
+                                ValidIssuer = "https://localhost:44382/",
+                                ValidAudience = "https://localhost:44382/",
+                                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
+                            };
+                        }
+                );
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder =>
@@ -94,7 +121,7 @@ namespace HerosApi
 
             app.UseRouting();// this middleware is used to configure endpoints 
             app.UseCors();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>  // this middleware executes those endpoints

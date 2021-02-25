@@ -1,4 +1,5 @@
 ﻿using HerosLogic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,7 @@ namespace HerosApi.Controllers
         //[ProducesResponseType(StatusCodes.Status200OK, Type=typeof(IEnumerable<SuperHero>)]// only use typeof if return type is IActionResult
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize]
         /*public ActionResult<SuperHero> Get()
         {
             //return Content("Hello Asp.Net Core Web API");
@@ -82,10 +84,10 @@ namespace HerosApi.Controllers
         {
             try
             {
-                // retruning status code 200
+                // returning status code 200
                 return Ok(repo.GetSuperHeroByName(name));
             }
-            catch (Exception ex)
+            catch
             {
                 return NotFound($"The superhero by name {name} does not exist");
             }
