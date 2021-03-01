@@ -10,6 +10,7 @@ namespace HerosApi.Controllers
     [ApiController]
     public class ErrorController : ControllerBase
     {
+        [HttpGet]
         [Route("/error")]
         public IActionResult Error() => Problem();
     }

@@ -23,7 +23,7 @@
 - Authentication: user's identity is recognized
 - Authorization: user is granted with access rights
 - JWT: JSON Web Tokens
-  - JWT has 2 parts separated by .
+  - JWT has 3 parts separated by .
   - header.payload.signature
 ### [Secrets Management](https://dev.to/dotnet/how-to-store-app-secrets-for-your-asp-net-core-project-2j5b)
 - to store sensitive/confidential data/environment/individual/application/centralized

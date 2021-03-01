@@ -54,9 +54,9 @@ namespace HerosApi
                                 //the signing key is valid and trusted by the server
                                 ValidateIssuerSigningKey = true,
 
-                                ValidIssuer = Configuration["ValidIssuer"],
-                                ValidAudience = Configuration["ValidAudience"],
-                                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["IssuerSigningKey"]))
+                                ValidIssuer = "https://superherowebapi.azurewebsites.net/", //Configuration["ValidIssuer"],
+                                ValidAudience = "https://superherowebapi.azurewebsites.net/",//Configuration["ValidAudience"],
+                                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))//(Configuration["IssuerSigningKey"]))
                             };
                         }
                 );

@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace HerosApi.Controllers
 {
+    /// <summary>
+    /// Login controller
+    /// </summary>
     [Route("api/auth")]
     [ApiController]
     public class LoginController : ControllerBase
@@ -31,12 +34,12 @@ namespace HerosApi.Controllers
             }
             if (user.userName == "John" && user.password == "Password123")
             {
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["IssuerSigningKey"]));
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));//(Configuration["IssuerSigningKey"]));
                 var signInCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
                 var tokenOptions = new JwtSecurityToken(
-                    issuer: Configuration["ValidIssuer"],
-                    audience: Configuration["ValidAudience"],
+                    issuer: "https://superherowebapi.azurewebsites.net/",//Configuration["ValidIssuer"],
+                    audience: "https://superherowebapi.azurewebsites.net/", //Configuration["ValidAudience"],
                     claims: new List<Claim>(),
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: signInCredentials
