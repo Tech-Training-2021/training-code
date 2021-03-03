@@ -1,0 +1,1 @@
+module.exports='Hello to Javascript world'

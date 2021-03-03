@@ -11,8 +11,14 @@
   - Check version of npm `npm -v`
   - Check version of TS compiler `tsc -v`
 
-
-
+### [Webpack](https://webpack.js.org/concepts/)
+- Webpack is a static module bundler for mordern JavaScript application. 
+- Install web pack in 2 settings:
+  - `--save`: belongs to production mode
+  - `--save-dev`: belongs to developmment
+  
 ### References
 - [Docs for TS](https://www.typescriptlang.org/docs/handbook)
-- [Video Series](https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI)
+- [Video Series for TS](https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI)
+- [Angular](https://angular.io/docs)
+- [Practise without setup](https://angular.io/tutorial)
