@@ -16,9 +16,15 @@
 - Install web pack in 2 settings:
   - `--save`: belongs to production mode
   - `--save-dev`: belongs to developmment
-  
+
+### Angular
+- Development framework to create Single-Page Applications.
+- AngularJs (2010) - 1.x
+- Angular 2 + (2016) - Angular
 ### References
 - [Docs for TS](https://www.typescriptlang.org/docs/handbook)
 - [Video Series for TS](https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI)
 - [Angular](https://angular.io/docs)
 - [Practise without setup](https://angular.io/tutorial)
+- [webpack](https://www.youtube.com/watch?v=czW2dJ_pv2g)
+- [source-code for webpack](https://github.com/rapidevelop/ex_webpack5)
