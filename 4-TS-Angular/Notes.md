@@ -21,6 +21,22 @@
 - Development framework to create Single-Page Applications.
 - AngularJs (2010) - 1.x
 - Angular 2 + (2016) - Angular
+  
+#### Components
+- Allow you to create and manage SPA with organization addressing the separation of concerns.
+- A component holds data, template, logic for that component.
+- Create a component 
+- Register the component in the module
+- Add a template to it
+
+#### Templates
+- What is rendered on the browser.
+- **Data Binding**
+  - String Interpolation - `{{}}`
+  
+#### Directives
+- used to manupulate the DOM, add an element, remove and element, update an element to DOM
+- 
 ### References
 - [Docs for TS](https://www.typescriptlang.org/docs/handbook)
 - [Video Series for TS](https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI)
