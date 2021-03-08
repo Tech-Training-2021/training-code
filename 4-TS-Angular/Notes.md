@@ -25,18 +25,30 @@
 #### Components
 - Allow you to create and manage SPA with organization addressing the separation of concerns.
 - A component holds data, template, logic for that component.
-- Create a component 
-- Register the component in the module
-- Add a template to it
-
+  - Create a component 
+  - Register the component in the module
+  - Add a template to it
+  - or 
+  - `ng g c <component-name>`
 #### Templates
 - What is rendered on the browser.
 - **Data Binding**
   - String Interpolation - `{{}}`
+  - Property Binding - `[]=value`
+  - Attribute Binding -`[attr.propertyname]=value`
+  - Class Binding
+  - Style Binding
   
 #### Directives
 - used to manupulate the DOM, add an element, remove and element, update an element to DOM
-- 
+- *ngFor
+  
+#### Services
+- This is a class which we use to write logic to get data from server.
+- Its easy to unit test  component and service by using fake.
+- It allows de-coupling between service and a component via **Dependency Injection**.
+- `ng g s <service-name>`
+  
 ### References
 - [Docs for TS](https://www.typescriptlang.org/docs/handbook)
 - [Video Series for TS](https://www.youtube.com/watch?v=2pZmKW9-I_k&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI)
