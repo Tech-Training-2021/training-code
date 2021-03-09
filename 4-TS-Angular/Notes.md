@@ -32,13 +32,13 @@
   - `ng g c <component-name>`
 #### Templates
 - What is rendered on the browser.
-- **Data Binding**
+- **Types of Bindings**
   - String Interpolation - `{{}}`
   - Property Binding - `[]=value`
   - Attribute Binding -`[attr.propertyname]=value`
-  - Class Binding
-  - Style Binding
-  
+  - Class Binding -`[class.active]="isActive"`
+  - Style Binding - ` [style.backgroundColor]="isActive?'green':'red'"`
+  - Event Binding - `(<eventname>)="<event handler>"`
 #### Directives
 - used to manupulate the DOM, add an element, remove and element, update an element to DOM
 - *ngFor

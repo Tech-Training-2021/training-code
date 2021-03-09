@@ -19,7 +19,12 @@ import { HeroService } from "./hero.service";
                 <td [attr.colspan]="colSpan"></td>
             </tr>
         </table>
-        <button class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActive?'green':'red'">Save</button>
+        <input #heroName (keyup.enter)="onKeyUp(heroName.value)"/>
+        <div (click)='onParagraphClick()'>
+            <div (click)="onDivClick()">
+                <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActive?'green':'red'">Save</button>
+            </div>
+        </div>
     `
 })
 export class HeroComponent {
@@ -34,4 +39,18 @@ export class HeroComponent {
       // let service=new HeroService();//tight-coupled
        this.heroes=service.getHeroes();
    }
+   onSave($event){
+       $event.stopPropagation();
+       console.log("Values are saved",$event);
+   }
+   onDivClick(){
+        console.log("div was clicked");
+   }
+   onParagraphClick(){
+        console.log("paragraph was clicked");
+   }
+   onKeyUp(heroName){
+        console.log(heroName+" <ENTER> key was pressed");
+   }
+
 }
