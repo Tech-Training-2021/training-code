@@ -1,1 +1,9 @@
-<p>heros works!</p>
+<p>
+   Name - {{Heros.name | uppercase}}<br/>
+   Description - {{Heros.description | summary:25 }}<br/>
+   Age - {{Heros.age | number}}<br/>
+   DOB -  {{Heros.dob | date}}<br/>
+   Salary (in hours) - {{Heros.salary| currency:'EUR':true:'3.1-2'}}<br/>
+   Ratings - {{Heros.ratings | number:'2.1-2'}}<br/>
+   Followers - {{Heros.followers | number}}<br/>
+</p>

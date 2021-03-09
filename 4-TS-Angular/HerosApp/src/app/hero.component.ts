@@ -19,7 +19,8 @@ import { HeroService } from "./hero.service";
                 <td [attr.colspan]="colSpan"></td>
             </tr>
         </table>
-        <input #heroName (keyup.enter)="onKeyUp(heroName.value)"/>
+        <!--input [value]='heroName' (keyup.enter)="heroName=$event.target.value; onKeyUp()"/-->
+        <input [(ngModel)]="heroName" (keyup.enter)="onKeyUp()"/>
         <div (click)='onParagraphClick()'>
             <div (click)="onDivClick()">
                 <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActive?'green':'red'">Save</button>
@@ -49,8 +50,9 @@ export class HeroComponent {
    onParagraphClick(){
         console.log("paragraph was clicked");
    }
-   onKeyUp(heroName){
-        console.log(heroName+" <ENTER> key was pressed");
+   heroName="Deadpool";
+   onKeyUp(){
+        console.log(this.heroName);
    }
 
 }

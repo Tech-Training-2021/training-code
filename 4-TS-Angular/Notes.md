@@ -35,10 +35,19 @@
 - **Types of Bindings**
   - String Interpolation - `{{}}`
   - Property Binding - `[]=value`
+    - Property binding is a 1 way binding from component class to template (view)
   - Attribute Binding -`[attr.propertyname]=value`
   - Class Binding -`[class.active]="isActive"`
   - Style Binding - ` [style.backgroundColor]="isActive?'green':'red'"`
   - Event Binding - `(<eventname>)="<event handler>"`
+  - Two-way Binding -`[(ngModel)]=<model/object>`
+#### Pipes
+- They are used to format the values in the template.
+  - Uppercase
+  - Lowercase
+  - Decimal
+  - Percentage
+  - Currency
 #### Directives
 - used to manupulate the DOM, add an element, remove and element, update an element to DOM
 - *ngFor

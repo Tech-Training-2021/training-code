@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeroComponent } from './hero.component';
 import { HeroService } from './hero.service';
 import { HerosComponent } from './heros/heros.component';
+import { SummaryPipe } from './summary.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroComponent,
-    HerosComponent
+    HerosComponent,
+    SummaryPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [HeroService],//Ng provides single instance of the Service listed here
   bootstrap: [AppComponent]
