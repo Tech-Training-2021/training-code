@@ -23,4 +23,7 @@ export class HerosComponent implements OnInit {
   post={
     isFav:false
   }
+  onFavoriteChange(){
+    console.log("Favorite component is clicked");
+  }
 }
