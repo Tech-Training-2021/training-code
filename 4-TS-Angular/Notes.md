@@ -30,6 +30,11 @@
   - Add a template to it
   - or 
   - `ng g c <component-name>`
+
+#### Dynamic Components
+- They are re-usable components.
+- To pass data from parent to child component we use `@Input()` directive.
+- To pass data from child to parent component we use `@Output()` directive.
 #### Templates
 - What is rendered on the browser.
 - **Types of Bindings**

@@ -20,4 +20,7 @@ export class HerosComponent implements OnInit {
     salary:120.8976,
     followers:23456789
   }
+  post={
+    isFav:false
+  }
 }
