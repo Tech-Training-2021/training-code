@@ -17,13 +17,13 @@ export class HerosComponent implements OnInit {
     age:30,
     ratings:4.5067,
     dob:new Date().toLocaleDateString(),
-    salary:120.8976,
+    salary:120.8976, 
     followers:23456789
   }
   post={
     isFav:false
   }
-  onFavoriteChange(){
-    console.log("Favorite component is clicked");
+  onFavoriteChange(isFavorite){
+    console.log("Favorite component is clicked ",isFavorite);
   }
 }

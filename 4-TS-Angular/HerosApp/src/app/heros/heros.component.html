@@ -12,7 +12,7 @@
             </p>
         </td>
         <td>
-            <app-favorite [isFavorite]="post.isFav" (change)="onFavoriteChange()"></app-favorite>
+            <app-favorite [isFavorite]="post.isFav" (change)="onFavoriteChange($event)"></app-favorite>
         </td>
     </tr>
 </table>
