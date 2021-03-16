@@ -37,6 +37,17 @@
 - To pass data from child to parent component we use `@Output()` directive.
 #### Templates
 - What is rendered on the browser.
+- Templates can be :
+  - **Internal**: Inline templates within your `component.ts`
+  - **External**: Developer have to use `templateUrl` as property to referene the external `component.html file`.    
+- **Styles**:
+  - **Style URLs property**: is a property inside `@Component` decorator`, which is used to reference local style style sheet (external).
+  - **Style property**: which is like inline style within a `component.ts` file.
+  - **Within in the template**: By using the `<Style></style`> tag
+  - Or all of above
+  - Precedance of styles applied **Template > Inline Style > External style**
+  - Styles are applied per component level and the CSS isn't leaked because of Angular ability to use **Shadow DOM**.
+    - Shadow DOM is a specificatin thagt enables DOM tree and Styles to be encapsulation or it allows developers to apply styles to elements without beeding styles out to the outer world.
 - **Types of Bindings**
   - String Interpolation - `{{}}`
   - Property Binding - `[]=value`
@@ -46,6 +57,7 @@
   - Style Binding - ` [style.backgroundColor]="isActive?'green':'red'"`
   - Event Binding - `(<eventname>)="<event handler>"`
   - Two-way Binding -`[(ngModel)]=<model/object>`
+
 #### Pipes
 - They are used to format the values in the template.
   - Uppercase
