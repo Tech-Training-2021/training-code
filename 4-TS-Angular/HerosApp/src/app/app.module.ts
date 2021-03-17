@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeroComponent } from './hero.component';
@@ -21,7 +22,8 @@ import { CommentComponent } from './comment/comment.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [HeroService],//Ng provides single instance of the Service listed here
   bootstrap: [AppComponent]

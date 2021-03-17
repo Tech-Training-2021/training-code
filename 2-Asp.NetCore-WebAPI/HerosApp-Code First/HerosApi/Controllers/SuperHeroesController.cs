@@ -27,7 +27,6 @@ namespace HerosApi.Controllers
         //[ProducesResponseType(StatusCodes.Status200OK, Type=typeof(IEnumerable<SuperHero>)]// only use typeof if return type is IActionResult
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Authorize]
         /*public ActionResult<SuperHero> Get()
         {
             //return Content("Hello Asp.Net Core Web API");
@@ -98,6 +97,7 @@ namespace HerosApi.Controllers
         /// <param name="hero"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         public IActionResult Post(SuperHero hero)
         {
             try

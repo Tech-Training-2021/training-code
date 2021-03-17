@@ -1,11 +1,11 @@
-<button (click)='AddComments()' class ='btn btn-primary'>Add Comments</button>
+<button (click)='LoadComments()' class ='btn btn-primary'>Load Comments</button>
 <div *ngIf='comments!=null; then yesComments else noComments'></div>
 <ng-template #yesComments>
     <h1>Comments</h1>
     <ul class="list-group">
         <li *ngFor='let comment of comments' class="list-group-item">
-            {{comment}}
-            <button (click)='onRemove(comment)'>Remove Comment</button>
+            {{comment.id}} - <strong>{{comment.email}}</strong> - {{comment.body | summary}}
+            <!-- <button (click)='onRemove(comment)'>Remove Comment</button> -->
         </li>
     </ul>
 </ng-template>
