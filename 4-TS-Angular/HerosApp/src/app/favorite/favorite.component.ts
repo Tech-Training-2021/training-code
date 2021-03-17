@@ -10,7 +10,7 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewEncapsulation } fro
   //   h1{color:green}
   //   `
   // ],  
-  encapsulation:ViewEncapsulation.Emulated
+  encapsulation:ViewEncapsulation.Emulated 
 })
 export class FavoriteComponent implements OnInit {
 

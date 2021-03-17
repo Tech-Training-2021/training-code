@@ -31,6 +31,12 @@
   - or 
   - `ng g c <component-name>`
 
+#### Directives
+- Classes that add additional behaviour to the elements in your Ng App.
+  - **Attribute Directives** - change the appearance or behavior of an element, component or another directive. Broadly speaking this changes the attribute behavior in the DOM.
+    - Eg: NgModel, NgStyle, NgClass
+  - **Structural Directives** - they chages the DOM layout by adding or removing DOM elements
+    - Eg: NgIf, NgFor, NgSwitch
 #### Dynamic Components
 - They are re-usable components.
 - To pass data from parent to child component we use `@Input()` directive.

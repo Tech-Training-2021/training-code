@@ -8,6 +8,7 @@ import { HeroService } from './hero.service';
 import { HerosComponent } from './heros/heros.component';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FavoriteComponent } from './favorite/favorite.component';
     HeroComponent,
     HerosComponent,
     SummaryPipe,
-    FavoriteComponent
+    FavoriteComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
