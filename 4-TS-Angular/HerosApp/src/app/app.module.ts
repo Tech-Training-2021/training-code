@@ -10,6 +10,7 @@ import { HerosComponent } from './heros/heros.component';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { CommentComponent } from './comment/comment.component';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CommentComponent } from './comment/comment.component';
     HerosComponent,
     SummaryPipe,
     FavoriteComponent,
-    CommentComponent
+    CommentComponent,
+    InputFormatDirective
   ],
   imports: [
     BrowserModule,

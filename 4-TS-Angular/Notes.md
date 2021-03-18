@@ -37,6 +37,7 @@
     - Eg: NgModel, NgStyle, NgClass
   - **Structural Directives** - they chages the DOM layout by adding or removing DOM elements
     - Eg: NgIf, NgFor, NgSwitch
+  - To create a custom directive `ng g d InputDirective`
 #### Dynamic Components
 - They are re-usable components.
 - To pass data from parent to child component we use `@Input()` directive.
