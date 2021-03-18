@@ -81,6 +81,11 @@
 - Its easy to unit test  component and service by using fake.
 - It allows de-coupling between service and a component via **Dependency Injection**.
 - `ng g s <service-name>`
+
+#### Forms
+- To handle users input developer can create 2 types of forms in Angular
+1. **Template-Driven** - rely on dirctives in template to create and manipulate the object model. They are usefu; to add simple forms to an app but they are not easy to scale up. Eg: Email list, Sign Up form and Contact us form etc....
+2. **Reactive** - provide explicit access to the object model. They more robust, scalablem re-usable and testable. Mostly prefered. 
   
 ### References
 - [Docs for TS](https://www.typescriptlang.org/docs/handbook)
