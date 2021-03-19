@@ -9,17 +9,28 @@ import { UsernameValidators } from './username.validators';
 })
 export class SignupFormComponent {
   form=new FormGroup({
-    username:new FormControl('',[Validators.required,
+    username:new FormControl('',
+    [
+    Validators.required,
    // Validators.email,
-    Validators.minLength(3)]),
+    Validators.minLength(3),
+    UsernameValidators.cannotContainSpace], UsernameValidators.shouldBeUnique),
     password:new FormControl('',[Validators.required, 
-                                 Validators.minLength(8),
-                                 UsernameValidators.cannotContainSpace])
+                                 Validators.minLength(8)])
   });
   get username(){
     return this.form.get('username');
   }
   get password(){
     return this.form.get('password');
+  }
+  login(){
+    // let isValid=authService.login(this.form.value)//return bool
+    // if(!isValid){
+    //   this.form.setErrors({InvalidLogin:true});
+    // }
+    this.form.setErrors({
+      InvalidLogin:true
+    });
   }
 }
